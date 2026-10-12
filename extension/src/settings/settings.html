@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishSense Settings & Privacy</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <span class="brand-title">PhishSense Settings & Controls</span>
+    </div>
+
+    <form id="settings-form">
+      <div class="section">
+        <div class="section-header">Security Protection Engine</div>
+        
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Automatic Email Scanning</span>
+            <span class="setting-desc">Automatically analyze emails when opened in Gmail</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-autoScanning" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Backend AI Analysis</span>
+            <span class="setting-desc">Use AI cloud provider for deep semantic threat detection</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-aiAnalysisEnabled" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Deep URL & Link Inspection</span>
+            <span class="setting-desc">Flag mismatching destinations, Punycode, and suspicious TLDs</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-urlAnalysisEnabled" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Attachment Metadata Analysis</span>
+            <span class="setting-desc">Detect executable extensions, scripts, and double extensions</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-attachmentAnalysisEnabled" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Privacy & Data Storage</div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Strict Privacy Mode</span>
+            <span class="setting-desc">Do not send email subject or body text to backend servers</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-privacyMode" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Report Submission Confirmation</span>
+            <span class="setting-desc">Prompt before submitting phishing reports to security databases</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="setting-reportConfirmation" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Trusted & Blocked Senders</div>
+
+        <div style="margin-bottom:16px;">
+          <div style="font-size:13px; font-weight:600; margin-bottom:8px;">Trusted Domains / Senders (Whitelist)</div>
+          <div style="display:flex; gap:8px; margin-bottom:8px;">
+            <input type="text" id="input-trusted" placeholder="e.g. company.com or boss@company.com" style="flex:1; padding:8px 12px; border-radius:6px; border:1px solid #374151; background:#111827; color:#fff;" />
+            <button type="button" id="btn-add-trusted" style="padding:8px 16px; background:#10b981; color:#fff; border:none; border-radius:6px; font-weight:600; cursor:pointer;">Add</button>
+          </div>
+          <div id="trusted-list-container" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:13px; font-weight:600; margin-bottom:8px;">Blocked Domains / Senders (Blacklist)</div>
+          <div style="display:flex; gap:8px; margin-bottom:8px;">
+            <input type="text" id="input-blocked" placeholder="e.g. spammer-domain.com" style="flex:1; padding:8px 12px; border-radius:6px; border:1px solid #374151; background:#111827; color:#fff;" />
+            <button type="button" id="btn-add-blocked" style="padding:8px 16px; background:#ef4444; color:#fff; border:none; border-radius:6px; font-weight:600; cursor:pointer;">Block</button>
+          </div>
+          <div id="blocked-list-container" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; margin-top:20px;">
+        <button type="submit" class="btn-save">Save Settings</button>
+      </div>
+    </form>
+  </div>
+
+  <script type="module" src="settings.ts"></script>
+</body>
+</html>

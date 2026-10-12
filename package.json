@@ -1,0 +1,27 @@
+{
+  "name": "phishsense-root",
+  "version": "1.0.0",
+  "description": "PhishSense — AI-Powered Phishing & Spam Detection Chrome Extension + Backend",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm --prefix extension install && npm --prefix backend install",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:extension": "npm --prefix extension run dev",
+    "build:extension": "npm --prefix extension run build",
+    "build:backend": "npm --prefix backend run build",
+    "build": "npm run build:extension && npm run build:backend",
+    "typecheck": "npm --prefix extension run typecheck && npm --prefix backend run typecheck",
+    "lint": "npm --prefix extension run lint && npm --prefix backend run lint",
+    "test": "npm --prefix backend run test && npm --prefix extension run test"
+  },
+  "keywords": [
+    "cybersecurity",
+    "phishing-detection",
+    "chrome-extension",
+    "gmail",
+    "ai",
+    "spam-filter"
+  ],
+  "author": "PhishSense Security Team",
+  "license": "MIT"
+}

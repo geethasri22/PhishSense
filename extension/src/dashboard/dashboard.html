@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishSense Security Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span class="brand-title">PhishSense Security Dashboard</span>
+      </div>
+      <div>
+        <span style="font-size: 13px; color: var(--text-secondary);">Gmail AI Protection Hub</span>
+      </div>
+    </div>
+
+    <div class="stats-overview">
+      <div class="card">
+        <div class="card-title">Total Scanned</div>
+        <div class="card-value" id="dash-total">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Safe Emails</div>
+        <div class="card-value" style="color:var(--safe-green);" id="dash-safe">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Suspicious</div>
+        <div class="card-value" style="color:var(--suspicious-yellow);" id="dash-suspicious">0</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Phishing Threats</div>
+        <div class="card-value" style="color:var(--phishing-red);" id="dash-phishing">0</div>
+      </div>
+    </div>
+
+    <!-- Live Phishing Inspection & Red Flags Previewer -->
+    <div class="card" style="margin-bottom: 24px; border: 1px solid #dc2626; background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="margin:0; font-size:16px; color:#f87171; display:flex; align-items:center; gap:8px;">
+          <span>🚨 Live Phishing Threat Inspection & Hover Red Flags Simulator</span>
+        </h3>
+        <span style="font-size:12px; background:#ef4444; color:#fff; padding:3px 10px; border-radius:12px; font-weight:bold;">DEMO & TESTING</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px;">
+        <div>
+          <label style="font-size:12px; font-weight:600; color:#94a3b8; display:block; margin-bottom:4px;">Target Recipient Inbox:</label>
+          <input type="text" id="demo-recipient" value="geethasri0406@gmail.com" style="width:100%; padding:8px 12px; background:#0f172a; border:1px solid #334155; border-radius:6px; color:#f8fafc; font-size:13px;" />
+        </div>
+        <div>
+          <label style="font-size:12px; font-weight:600; color:#94a3b8; display:block; margin-bottom:4px;">Sender Email (Phishing Lure Origin):</label>
+          <input type="text" id="demo-sender" value="geethasrilakshmi0306@gmail.com" style="width:100%; padding:8px 12px; background:#0f172a; border:1px solid #ef4444; border-radius:6px; color:#f87171; font-weight:bold; font-size:13px;" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <label style="font-size:12px; font-weight:600; color:#94a3b8; display:block; margin-bottom:4px;">Email Subject Line:</label>
+        <input type="text" id="demo-subject" value="URGENT: Your Gmail Account Security Alert - Immediate Password Verification Required" style="width:100%; padding:8px 12px; background:#0f172a; border:1px solid #334155; border-radius:6px; color:#f8fafc; font-size:13px;" />
+      </div>
+
+      <button id="btn-run-simulation" style="background:#dc2626; color:#fff; border:none; padding:10px 20px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
+        <span>🔍 Run Live Threat Analysis & Render Hover Card</span>
+      </button>
+
+      <div id="simulation-output" style="margin-top:20px; display:none;">
+        <!-- Simulated Gmail Email Container with Security Banner & Hover Explanation Card -->
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Recent Threat & Analysis Log</div>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Subject / Sender</th>
+            <th>Risk Score</th>
+            <th>Classification</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="dash-history-body">
+          <tr>
+            <td colspan="5" style="text-align:center; color:var(--text-secondary); padding:24px;">
+              No recent security threats logged yet. Open an email in Gmail to trigger analysis.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.ts"></script>
+</body>
+</html>
